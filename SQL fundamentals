@@ -1,0 +1,13 @@
+--Step 1: Create Catalog
+CREATE CATALOG If NOT EXISTS exercise3;
+--Step 2: Create a Schema
+CREATE SCHEMA If NOT EXISTS exercise3.default;
+--Step 3: Create a table
+CREATE TABLE IF NOT EXISTS exercise3.default.people (student_id INT,days_present INT,total_days INT);
+Select*
+FROM exercise3.default.people;
+--Step 4: Insert data into the table
+INSERT INTO exercise3.default.people VALUES (1,45,50),(2,30,50),(3,48,50),(4,25,50),(5,50,50);
+--Step 5:check the table
+Select*
+FROM exercise3.default.people;
