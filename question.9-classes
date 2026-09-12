@@ -1,0 +1,27 @@
+--Step 1: Create Catalog
+CREATE CATALOG IF NOT EXISTS classes;
+--step 2: Create schema
+CREATE SCHEMA IF NOT EXISTS classes.default;
+--step 3: Create the table 
+CREATE TABLE IF NOT EXISTS employees.default.classes (classes_id INT, subject STRING, enrolled_students INT
+);
+--step 4: Insert data into the table
+INSERT INTO employees.default.classes VALUES 
+(1, 'Math',30),
+(2, 'English', 25),
+(3, 'Science', 15),
+(4, 'Art', 5),
+(5, 'History', 20);
+
+--step 5: check the table
+SELECT * FROM employees.default.classes;
+--question 9:Classes with their enrolled student counts. Classify each class by size.
+SELECT
+subject,
+enrolled_students,
+CASE
+WHEN enrolled_students >= 25 THEN 'Large'
+WHEN enrolled_students BETWEEN 10 AND 24 THEN 'Medium'
+WHEN enrolled_students < 10 THEN 'Small'
+END AS class_size_category
+FROM employees.default.classes;
